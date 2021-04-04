@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AdminComponent } from './admin/admin.component';
 import { QuizComponent } from './quiz/quiz.component';
-import { QuestionEditComponent } from './question-edit/question-edit.component';
+import { FormsModule } from '@angular/forms';
 import { QuestionEditorComponent } from './question-editor/question-editor.component';
 import { QuizEditorComponent } from './quiz-editor/quiz-editor.component';
 import { HomeComponent } from './home/home.component';
+import { StudentService } from './service/student.service';
+import { QuestionService } from './service/question.service';
+import { QuizService } from './service/quiz.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,16 +21,21 @@ import { HomeComponent } from './home/home.component';
     NavigationComponent,
     AdminComponent,
     QuizComponent,
-    QuestionEditComponent,
     QuestionEditorComponent,
     QuizEditorComponent,
     HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    StudentService,
+    QuestionService,
+    QuizService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
